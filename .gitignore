@@ -1,0 +1,6 @@
+tmp/
+.DS_Store
+Obsidian Vault/.obsidian/cache/
+Obsidian Vault/.obsidian/workspace*.json
+Obsidian Vault/.trash/
+Obsidian Vault/**/*sync-conflict-*

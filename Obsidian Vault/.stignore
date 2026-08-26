@@ -1,0 +1,5 @@
+(?d).obsidian/workspace*.json
+(?d).obsidian/cache
+(?d).trash
+(?d)*sync-conflict-*
+(?d).DS_Store
