@@ -1,44 +1,27 @@
-# Syncthing setup for PC and Android
+# Free PC–Android Obsidian sync
 
-Use Syncthing as the only bidirectional sync engine for `Obsidian Vault/`. Google Drive stores source binaries separately and must not also synchronize the live vault.
+Use Syncthing on Windows and a maintained Syncthing-Fork Android client. Use one sync engine for the live vault.
 
-## Recommended topology
+1. Make an independent backup of existing notes.
+2. Create a live vault folder outside OneDrive and Google Drive. On Windows, `%USERPROFILE%\Obsidian\Samuel` is a suitable example.
+3. Copy the contents of this repository's `Obsidian Vault/` into that live vault. Do not copy the entire repository or the source-file tree.
+4. Open the live folder as a vault in Obsidian.
+5. Install Syncthing from its official source on Windows. Install a currently maintained Android client from its verified project or F-Droid listing.
+6. Pair the devices. Share only the live vault as Send & Receive.
+7. Select an Android-local folder that Obsidian can open. Open it as the Android vault.
+8. Apply the repository's `.stignore` rules on each device. Syncthing does not distribute `.stignore` automatically.
+9. Enable versioning for received changes on the Windows copy. Keep an independent backup for local edits; synchronization and remote-change versioning do not replace one.
+10. Create a disposable note on Windows. Verify it on Android. Edit it on Android. Verify that change on Windows.
+11. Test a conflict and restoration using disposable notes. Preserve sync-conflict copies until reconciled.
+12. Mark sync operational only after these checks pass on the actual devices.
 
-```mermaid
-flowchart TD
-    H["Always-on trusted host"] <--> P["PC vault"]
-    H <--> A["Android vault"]
-    G["Private Google Drive sources"] --> N["NotebookLM"]
-    G -. "stable links" .-> H
-```
+Keep the user's existing `OneDrive\Documents\academic-research-skill` folder as a skill/source package if desired. Keep the live Syncthing vault outside OneDrive to avoid two synchronization engines writing it.
 
-The always-on host may be the main PC initially. A NAS or home-lab server can replace it later without changing the vault format.
+Keep PDFs and PowerPoint source files in the separate Google Drive hierarchy. The vault contains notes and stable source links.
 
-## Setup
+Official references:
 
-1. Install Syncthing on the host and PC.
-2. Install the maintained Syncthing-Fork Android client from F-Droid or its verified project release.
-3. Share only `Obsidian Vault/` as `Send & Receive`.
-4. On Android, map it to a normal local folder such as `Internal storage/Documents/Obsidian/Study-Notes` and open that folder in Obsidian.
-5. Enable staggered file versioning on the always-on host. Keep a separate backup because sync history is not a backup.
-6. Let the first sync finish before opening the vault on another device.
-7. Exempt Syncthing-Fork from Android battery optimization only as needed for reliable background sync; retain your preferred Wi-Fi/mobile-data restrictions.
-
-## Required test before migration
-
-Use a disposable note and verify:
-
-- host to PC;
-- PC to Android;
-- Android to host;
-- deletion propagation;
-- conflict-copy creation from simultaneous edits;
-- restore from host version history.
-
-## Conflict policy
-
-- Avoid editing the same note simultaneously on PC and Android.
-- Preserve conflict copies until they are compared.
-- Keep filename casing consistent across Windows, Linux, and Android.
-- Sync the notes and chosen Obsidian configuration, but ignore device-specific workspaces and cache files using `Obsidian Vault/.stignore`.
-- Never enable Obsidian Sync, FolderSync, LiveSync, or Remotely Save for this same live vault while Syncthing is active.
+- <https://syncthing.net/downloads/>
+- <https://docs.syncthing.net/users/ignoring.html>
+- <https://docs.syncthing.net/users/versioning.html>
+- <https://github.com/researchxxl/syncthing-android>

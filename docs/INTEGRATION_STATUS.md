@@ -1,18 +1,17 @@
-# Integration status
+# Integration acceptance checklist
 
-Checked on: 2026-08-26
+Use the private setup record for account-specific connection results. This reusable public file deliberately contains no live account metadata, notebook IDs, source counts, device IDs, or private resource links.
 
-| Backend | Current state | What is prepared | Remaining handoff |
-| --- | --- | --- | --- |
-| GitHub repository | Read/write repository branch | PDFs, topic workspaces, manifests, notes, and validation scripts | Merge the prepared branch after review |
-| Google Drive | Manual handoff | Canonical Drive folder layout, filenames, and upload manifests | Authorize and upload the four source folders to a private Drive location; record stable links |
-| Personal NotebookLM | Manual handoff | Four source selections and four ready-to-paste processing prompts | Create one notebook per subject, add its curated source, and return the `CHATGPT HANDOFF` section |
-| Obsidian | Prepared plain-file vault | Linked topic maps, concept seeds, source notes, recall queues, and cross-topic index | Open `Obsidian Vault/` locally and let Syncthing replicate it |
-| Syncthing | Configuration prepared | `.stignore`, topology, validation checklist, and conflict policy | Install/configure Syncthing on the host/PC and Syncthing-Fork on Android |
-| ChatGPT-to-vault bridge | Disconnected | Narrow recommended tool surface documented below | Deploy an authenticated MCP service on the trusted host when direct ChatGPT writes are desired |
+| Component | Required evidence before claiming it works |
+| --- | --- |
+| Unified skill | Valid skill metadata and a saved installation |
+| Google Drive | Authorized folder/file write followed by metadata or listing readback |
+| Personal NotebookLM / Gemini Notebook | Actual notebook creation, source import, and processing checked separately |
+| Obsidian | Valid linked notes and a vault opened on the user's actual device |
+| Syncthing | PC-to-Android and Android-to-PC edits, conflicts, and restore checked on actual devices |
+| ChatGPT/Claude direct device bridge | Authenticated scope-limited read/write test on the trusted host |
+| Baidu Unlimited-OCR | Configured compatible model endpoint and page-level extraction verification |
 
-## Automation level
+The cloud repository checkout does not mount a local Windows folder. Repository edits do not prove that a Windows or Android installation has been configured. Follow `WINDOWS_SETUP.md` and `SYNCTHING_SETUP.md` for that device handoff.
 
-The repository is NotebookLM-ready but the external backends are not yet connected. No Drive upload, NotebookLM import, or Obsidian sync is claimed as completed.
-
-For a later ChatGPT-first bridge, expose only topic-scoped operations such as reading a topic map, writing one note, applying a guarded patch, listing conflicts, and checking sync status. Do not expose arbitrary host filesystem access.
+Do not infer content ingestion from empty notebooks or folder creation. Later source files require screening and authorization appropriate to their destinations.

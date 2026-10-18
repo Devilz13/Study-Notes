@@ -1,49 +1,39 @@
-# Study Notes
+# Samuel Research and Study
 
-A four-subject study-memory workspace built around the current textbook PDFs.
+One workflow for research, course-file organization, NotebookLM study, and Obsidian memory. It supports ChatGPT and Claude.
 
-- ChatGPT is the normal input and orchestration surface.
-- Google Drive is the intended private source-file library used by NotebookLM.
-- NotebookLM processes one subject at a time and returns cited candidate notes.
-- Obsidian is the durable memory layer.
-- Syncthing and Syncthing-Fork replicate only the Obsidian vault between PC and Android.
+Start with [the shared AI operating guide](README_AI.md). The unified [research-study skill](skills/research-study/SKILL.md) includes the ten research workflows and the study-memory workflow.
 
-```mermaid
-flowchart TD
-    A["ChatGPT"] --> B["Four subject workspaces"]
-    B --> C["Drive source library"]
-    C --> D["NotebookLM"]
-    D --> E["Verified Obsidian notes"]
-    E --> F["Syncthing: PC and Android"]
-```
+## Structure
 
-## Subjects
+| Directory | Purpose |
+| --- | --- |
+| `Samuel/Samuel Work/` | Private-work template; no workplace records in this public repository |
+| `Samuel/Samuel Study/ICT111/` | ICT111 source files, assignments, and lesson slides |
+| `Samuel/Samuel Study/ICT201/` | ICT201 source files, assignments, and lesson slides |
+| `Samuel/Samuel Study/Shared References/` | Four retained textbook libraries |
+| `Obsidian Vault/` | Linked memory, module maps, concepts, and recall |
 
-| Subject | Canonical source | NotebookLM workspace | Obsidian entry point |
-| --- | --- | --- | --- |
-| Networking Fundamentals | `SRC-0001 - Network Fundamentals - CCNA Exploration Companion Guide.pdf` | `Academic Source Library/networking-fundamentals/` | `Obsidian Vault/Topics/networking-fundamentals/00 Topic Map.md` |
-| Computing Research Methods | `SRC-0001 - Researching Information Systems and Computing.pdf` | `Academic Source Library/computing-research-methods/` | `Obsidian Vault/Topics/computing-research-methods/00 Topic Map.md` |
-| Systems Analysis and Design | `SRC-0001 - Systems Analysis and Design in a Changing World.pdf` | `Academic Source Library/systems-analysis-and-design/` | `Obsidian Vault/Topics/systems-analysis-and-design/00 Topic Map.md` |
-| C++ Programming | `SRC-0001 - Starting Out with C++ - Ninth Global Edition.pdf` | `Academic Source Library/cpp-programming/` | `Obsidian Vault/Topics/cpp-programming/00 Topic Map.md` |
+Both modules have `Assignments/Assignment 1/`, `Assignments/Assignment 2/`, and `Slides/Lesson1/` through `Slides/Lesson7/`. The module folders are ready for later files. Course titles and lesson content are not inferred.
 
-The cross-topic entry point is `Obsidian Vault/Topics/cross-topic-index/00 Topic Map.md`.
+## Use it
 
-## Start here
+1. Open `Obsidian Vault/` in Obsidian.
+2. Start at [Samuel Home](Obsidian%20Vault/00%20Samuel%20Home.md).
+3. Add bulk study files to `Samuel/Samuel Study/00 Inbox/`, or use the matching private Drive folder.
+4. Ask ChatGPT or Claude: "Use research-study. Read README_AI.md. Organize the new files by module, assignment, and lesson. Preserve originals. Update the source registry and linked memory."
+5. Use [NotebookLM workflow](docs/NOTEBOOKLM_WORKFLOW.md) for notebook creation and source processing.
+6. Use [Syncthing setup](docs/SYNCTHING_SETUP.md) for free PC–Android vault replication.
 
-1. Open `Obsidian Vault/` as an Obsidian vault.
-2. Read `Obsidian Vault/00 Study Home.md`.
-3. Follow `docs/SYNCTHING_SETUP.md` to sync the vault.
-4. Mirror each `Academic Source Library/<topic>/` folder to a private Google Drive folder.
-5. Create four NotebookLM notebooks and use each topic's `01 NotebookLM Processing Prompt.md`.
-6. Paste NotebookLM's final handoff into ChatGPT for verification and conversion into atomic notes.
-
-## Repository checks
-
-Run:
+## Checks
 
 ```bash
-python3 scripts/rebuild_notebooklm_manifests.py
-python3 scripts/validate_study_structure.py
+python scripts/bootstrap_workspace.py
+python scripts/rebuild_notebooklm_manifests.py
+python scripts/validate_study_structure.py
+python -m unittest discover -s tests -v
 ```
 
-The PDFs are copyrighted textbooks. Their presence in this repository does not establish redistribution or third-party-upload rights. The evidence ledgers therefore keep `rights: unknown` and `external_upload: ask` until the user explicitly authorizes the relevant service upload.
+See [integration status](docs/INTEGRATION_STATUS.md) for what is connected and what still requires setup. Creating a folder or prompt does not run NotebookLM or configure the user's devices.
+
+The four existing textbook files are retained. Their existing publication does not establish external-upload rights. Their evidence ledgers retain the previous authorization state. New raw files and assignments are private by default.
