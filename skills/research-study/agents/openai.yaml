@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research and Study"
+  short_description: "Research, organize sources, and retain study memory"
+  default_prompt: "Use $research-study to organize my course files and update linked study memory."

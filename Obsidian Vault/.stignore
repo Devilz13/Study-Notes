@@ -1,0 +1,5 @@
+(?d).obsidian/workspace*.json
+(?d).obsidian/cache
+(?d).trash
+(?d).DS_Store
+# Preserve and resolve sync-conflict files. Do not automatically discard them.

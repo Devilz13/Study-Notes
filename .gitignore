@@ -1,0 +1,24 @@
+tmp/
+.local/
+__pycache__/
+*.pyc
+.DS_Store
+# Source intake is private by default. Retained PDFs remain explicitly tracked.
+Samuel/**
+!Samuel/**/
+!Samuel/**/.gitkeep
+!Samuel/**/README.md
+!Samuel/**/00 Curated Source Guide.md
+!Samuel/**/01 NotebookLM Processing Prompt.md
+!Samuel/**/source-manifest.csv
+# The work scope is a template only.
+Obsidian Vault/Samuel/Samuel Work/**
+!Obsidian Vault/Samuel/Samuel Work/00 Work Home.md
+# Keep assignment drafts and returned feedback private.
+Obsidian Vault/Samuel/Samuel Study/*/Assignments/**
+!Obsidian Vault/Samuel/Samuel Study/*/Assignments/**/
+!Obsidian Vault/Samuel/Samuel Study/*/Assignments/**/00 Assignment Map.md
+Obsidian Vault/.obsidian/cache/
+Obsidian Vault/.obsidian/workspace*.json
+Obsidian Vault/.trash/
+Obsidian Vault/**/*sync-conflict-*

@@ -1,0 +1,85 @@
+{
+  "schema_version": 2,
+  "owner": "Samuel",
+  "skill": "research-study",
+  "source_root": "Samuel",
+  "study_root": "Samuel/Samuel Study",
+  "work_root": "Samuel/Samuel Work",
+  "vault_root": "Obsidian Vault",
+  "default_modules": [
+    "ICT111",
+    "ICT201"
+  ],
+  "initial_assignments": [
+    1,
+    2
+  ],
+  "initial_lessons": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "source_store": "google_drive",
+  "memory_store": "obsidian_markdown",
+  "processor": "notebooklm_personal",
+  "sync": {
+    "engine": "syncthing",
+    "android_client": "Syncthing-Fork",
+    "status": "device_setup_required"
+  },
+  "notebooks": [
+    {
+      "id": "networking-fundamentals",
+      "title": "Samuel - Networking Fundamentals",
+      "source_dir": "Samuel/Samuel Study/Shared References/networking-fundamentals",
+      "memory_dir": "Obsidian Vault/Samuel/Samuel Study/Shared References/networking-fundamentals",
+      "kind": "shared_reference"
+    },
+    {
+      "id": "computing-research-methods",
+      "title": "Samuel - Computing Research Methods",
+      "source_dir": "Samuel/Samuel Study/Shared References/computing-research-methods",
+      "memory_dir": "Obsidian Vault/Samuel/Samuel Study/Shared References/computing-research-methods",
+      "kind": "shared_reference"
+    },
+    {
+      "id": "systems-analysis-and-design",
+      "title": "Samuel - Systems Analysis and Design",
+      "source_dir": "Samuel/Samuel Study/Shared References/systems-analysis-and-design",
+      "memory_dir": "Obsidian Vault/Samuel/Samuel Study/Shared References/systems-analysis-and-design",
+      "kind": "shared_reference"
+    },
+    {
+      "id": "cpp-programming",
+      "title": "Samuel - C++ Programming",
+      "source_dir": "Samuel/Samuel Study/Shared References/cpp-programming",
+      "memory_dir": "Obsidian Vault/Samuel/Samuel Study/Shared References/cpp-programming",
+      "kind": "shared_reference"
+    },
+    {
+      "id": "ICT111",
+      "title": "Samuel - ICT111",
+      "source_dir": "Samuel/Samuel Study/ICT111",
+      "memory_dir": "Obsidian Vault/Samuel/Samuel Study/ICT111",
+      "kind": "module"
+    },
+    {
+      "id": "ICT201",
+      "title": "Samuel - ICT201",
+      "source_dir": "Samuel/Samuel Study/ICT201",
+      "memory_dir": "Obsidian Vault/Samuel/Samuel Study/ICT201",
+      "kind": "module"
+    },
+    {
+      "id": "cross-topic-index",
+      "title": "Samuel - Cross-topic Index",
+      "source_dir": "Samuel/Samuel Study/Cross-topic Index",
+      "memory_dir": "Obsidian Vault/Samuel/Samuel Study/Cross-topic Index",
+      "kind": "index"
+    }
+  ]
+}

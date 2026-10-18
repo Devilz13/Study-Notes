@@ -1,0 +1,25 @@
+name: Validate study structure
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild NotebookLM manifests
+        run: python3 scripts/rebuild_notebooklm_manifests.py
+      - name: Ensure generated manifests are current
+        run: python3 scripts/check_generated.py
+      - name: Validate topic files and links
+        run: python3 scripts/validate_study_structure.py
+      - name: Run regression tests
+        run: python3 -m unittest discover -s tests -v
